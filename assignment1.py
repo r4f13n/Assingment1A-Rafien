@@ -69,13 +69,21 @@ def after(date: str) -> str:
 
 
 def usage():
-    "Print a usage message to the user"
-    ...
+    '''
+    Print program usage message to the user and exit the program
+
+    '''
+    print("Usage: assignment1.py YYYY-MM-DD YYYY-MM-DD")
+    sys.exit(1)
 
 
 def leap_year(year: int) -> bool:
     "return True if the year is a leap year"
-    ...
+    if year % 4==0:
+        if year % 100 != 0 or year % 400 == 0;
+        return True
+    return False
+
 
 def valid_date(date: str) -> bool:
     "check validity of date and return True if valid"
