@@ -40,14 +40,23 @@ def after(date: str) -> str:
     #The below code splits input date into year month and day strings with - as a separater
     str_year, str_month, str_day = date.split('-')  
 
-    #converst year month and day strings to integers 
+    #converts year month and day strings to integers 
     year = int(str_year)
     month = int(str_month)
     day = int(str_day)
 
     #This adds 1 day to calculate the next day
     tmp_day = day + 1  # next day
-
+    
+    if month == 2:
+        if leap_year(year):
+            max_day = 29
+        else
+            max_day = 28
+    elif month in [4, 6, 9, 11]:
+        max_day = 30
+    else:
+        max_day = 31
 
     #Checks if day exceeds the maximum days at the current month
     if tmp_day > mon_max(month, year): #If tmp_day exceeds it resets the day to the start of the next month
