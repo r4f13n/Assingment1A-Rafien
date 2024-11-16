@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 
 '''
-OPS435 Assignment 1 - Summer 2023
+OPS435 Assignment 1 - Fall 2024
 Program: assignment1.py 
-Author: "Student Name"
+Author: "Rafien Mohammed"
 The python code in this file (a1_[Student_id].py) is original work written by
 "Student Name". No code in this file is copied from any other source
 except those provided by the course instructor, including any person,
@@ -37,26 +37,33 @@ def after(date: str) -> str:
     This function takes care of the number of days in February for leap year.
     This fucntion has been tested to work for year after 1582
     '''
-    str_year, str_month, str_day = date.split('-')
+    #The below code splits input date into year month and day strings with - as a separater
+    str_year, str_month, str_day = date.split('-')  
+
+    #converst year month and day strings to integers 
     year = int(str_year)
     month = int(str_month)
     day = int(str_day)
+
+    #This adds 1 day to calculate the next day
     tmp_day = day + 1  # next day
 
-    if tmp_day > mon_max(month, year):
+
+    #Checks if day exceeds the maximum days at the current month
+    if tmp_day > mon_max(month, year): #If tmp_day exceeds it resets the day to the start of the next month
         to_day = tmp_day % mon_max(month, year)  # if tmp_day > this month's max, reset to 1 
         tmp_month = month + 1
     else:
-        to_day = tmp_day
-        tmp_month = month + 0
+        to_day = tmp_day #if day is valid it keeps the entered day
+        tmp_month = month + 0 #and the month remains unchanged
 
-    if tmp_month > 12:
-        to_month = 1
-        year = year + 1
+    if tmp_month > 12: #this checks if month exceeds beyond 12
+        to_month = 1 #if month exceeds then it resets to one
+        year = year + 1 #and a year is added
     else:
-        to_month = tmp_month + 0
+        to_month = tmp_month + 0  #if month is valid under 12 then it keeps the month
 
-    next_date = f"{year}-{to_month:02}-{to_day:02}"
+    next_date = f"{year}-{to_month:02}-{to_day:02}" #This formats the calculated entry into the YYYY-MM-DD format
 
     return next_date
 
